@@ -1,10 +1,17 @@
 import React from 'react';
 
-export default function ContactItem({ contact, deleteContact }) {
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redax/contactFormReduсer';
+
+export default function ContactItem({ contact }) {
+  const dispatch = useDispatch();
+
   return (
     <li>
       {contact.name}: {contact.number}{' '}
-      <button onClick={() => deleteContact(contact.id)}>Delete</button>
+      <button onClick={() => dispatch(deleteContact(contact.id))}>
+        Delete
+      </button>
     </li>
   );
 }

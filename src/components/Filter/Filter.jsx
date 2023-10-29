@@ -1,13 +1,19 @@
 import React from 'react';
 import css from '../ContactForm/ContactForm.module.css';
 
-export default function Filter({ filter, handleChangeFilter }) {
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from 'redax/contactFormReduсer';
+
+export default function Filter() {
+  const filter = useSelector(state => state.contactForm.filter);
+  const dispatch = useDispatch();
+
   return (
     <label>
       <span className={css.title}>Find contacts by name</span>
       <input
         value={filter}
-        onChange={e => handleChangeFilter(e.target.value)}
+        onChange={e => dispatch(setFilter(e.target.value))}
         name="filter"
         type="text"
       />
