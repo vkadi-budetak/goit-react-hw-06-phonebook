@@ -17,14 +17,12 @@ import { contactFormReducer } from './contactFormReduсer';
 const contactFormConfig = {
   key: 'contactForm',
   storage,
-  whitelist: ['contacts']
-//   blacklist: ['filter'], //записуєм яке не хочемо дабавляти в локал
+  whitelist: ['contacts'],
+  //   blacklist: ['filter'], //записуєм яке не хочемо дабавляти в локал
 };
 
 export const store = configureStore({
-  reducer: {
-    contactForm: persistReducer(contactFormConfig, contactFormReducer),
-  },
+  reducer: persistReducer(contactFormConfig, contactFormReducer),
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

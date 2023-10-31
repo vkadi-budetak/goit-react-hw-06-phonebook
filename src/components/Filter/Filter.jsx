@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redax/contactFormReduсer';
 
 export default function Filter() {
-  const filter = useSelector(state => state.contactForm.filter);
+  const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   return (
